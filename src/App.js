@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import ParticipantsList from'./components/Participants-list';
+import STORE from './STORE';
+import { render } from '@testing-library/react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends Component {
+  static defaultProps = {
+    store: {
+      lists: [],
+      allCards: {},
+    }
+  };
+  render() {
+    return(
+    <main className = 'App'>
+    <div className='result'>
+    {STORE.participants.map(participant =>(
+    <ParticipantsList 
+    id = {participant.id}
+    name ={participant.name}
+    avatar={participant.avatar}
+    inSession ={participant.InSession}
+    onStage= {participant.onStage}
+    />
+    ))}
+    
     </div>
-  );
+    </main>
+    
+    )}
 }
 
 export default App;
