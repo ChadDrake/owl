@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import ParticipantsList from'./components/Participants-list';
+import Stage from './components/Stage';
 import STORE from './STORE';
 import { render } from '@testing-library/react';
+
 
 class App extends Component {
   static defaultProps = {
@@ -16,7 +17,7 @@ class App extends Component {
     <main className = 'App'>
     <div className='result'>
     {STORE.participants.map(participant =>(
-    <ParticipantsList 
+    <Stage 
     id = {participant.id}
     name ={participant.name}
     avatar={participant.avatar}
