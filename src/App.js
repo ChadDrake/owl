@@ -1,35 +1,26 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import Stage from './components/Stage';
+import React, { Component } from 'react';
+import ChatEvent from './components/Chat-Log';
 import STORE from './STORE';
-import { render } from '@testing-library/react';
-
 
 class App extends Component {
-  static defaultProps = {
-    store: {
-      lists: [],
-      allCards: {},
-    }
-  };
   render() {
-    return(
-    <main className = 'App'>
-    <div className='result'>
-    {STORE.participants.map(participant =>(
-    <Stage 
-    id = {participant.id}
-    name ={participant.name}
-    avatar={participant.avatar}
-    inSession ={participant.InSession}
-    onStage= {participant.onStage}
-    />
-    ))}
-    
-    </div>
-    </main>
-    
-    )}
+    return (
+      <main className="App">
+        <div className="result">
+          {STORE.chatEvents.map((chat) => (
+            <ChatEvent
+              participantId={chat.participantId}
+              list={STORE.participants}
+              type={chat.type}
+              message={chat.message}
+              time={chat.time}
+              timestamp={chat.timestamp}
+            />
+          ))}
+        </div>
+      </main>
+    );
+  }
 }
 
 export default App;

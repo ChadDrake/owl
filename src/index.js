@@ -4,8 +4,8 @@ import App from './App';
 import STORE from './STORE'
 
 ReactDOM.render(
-  
-    <App store={STORE}/>
+
+  <App store={STORE} />
   ,
   document.getElementById('root')
 );
