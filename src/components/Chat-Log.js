@@ -1,27 +1,27 @@
 import React from 'react';
 
-function chatLog(props) {
+function chatLog({ type, list, message, participantId }) {
   let avatar = '';
   let name = '';
-  for (let i = 0; i < props.list.length; i++) {
-    if (props.list[i].id === props.participantId) {
-      name = props.list[i].name;
-      avatar = props.list[i].avatar;
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].id === participantId) {
+      name = list[i].name;
+      avatar = list[i].avatar;
     }
   }
-  console.log(name);
-  if (props.type === 'message') {
+  console.log(list);
+  if (type === 'message') {
     return (
       <div>
         {name} <img src={avatar} alt="" />
-        {props.message}
+        {message}
       </div>
     );
   } else {
     return (
       <div>
         {name} <img src={avatar} alt="" />
-        {props.type}
+        {type}
       </div>
     );
   }

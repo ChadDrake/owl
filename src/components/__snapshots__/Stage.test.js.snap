@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Stage renders UI as expected 1`] = `
+<div>
+  <img
+    alt=""
+    src="img"
+  />
+  Jim
+</div>
+`;
+
 exports[`renders UI as expected 1`] = `
 <div>
   <section
